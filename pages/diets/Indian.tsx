@@ -142,7 +142,7 @@ export default function Indian() {
                   return (
                     <p key={line} style={{ color: "#f8f9fa", textDecoration: "none" }}>
                       {parts.slice(0, -1).join(" - https")} - 
-                      <a href={link} target="_blank" style={{ color: "#da9036", textDecoration: "none" }}>  Open with YouTube</a>
+                      <a href={link} target="_blank" rel="noopener" style={{ color: "#da9036", textDecoration: "none" }}>  Open with YouTube</a>
                     </p>
                   );
                 })}
