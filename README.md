@@ -1,4 +1,4 @@
-Recipe Generator for Cooknando.com
+#Recipe Generator for Cooknando.com
 This is a recipe generator web application for Cooknando.com built using React, Next.js, and the MealDB API.
 
 Technologies Used
