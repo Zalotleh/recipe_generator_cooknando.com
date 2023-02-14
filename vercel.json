@@ -6,10 +6,10 @@
         "use": "@vercel/node"
       }
     ],
-    
+
     "functions": {
         "api/**/*": {
-          "maxDuration": 10
+          "maxDuration": 50
         }
       }
   }
