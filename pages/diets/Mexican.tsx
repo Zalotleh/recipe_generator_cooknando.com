@@ -88,7 +88,7 @@ export default function Mexican() {
         <Navigation/>
 
         <div className="welcome">
-          <h1 className='welcome-h1'>¡Hola! Let's cook up some Mexican magic. What ingredients will you add to the recipe?</h1>
+          <h1 className='welcome-h1'>¡Hola! Let&rsquo;s cook up some Mexican magic. What ingredients will you add to the recipe?</h1>
           <p className='welcome-p'></p>
         </div>
 
@@ -129,14 +129,14 @@ export default function Mexican() {
                 }
               </div>
 
-              {mexicanRecipeLoadingError && <div className="errorMessage">Oh fiddle sticks! Something didn't go as planned. Shall we try again?</div>}
-              {mexicanRecipe && <><h5 className='recipe-header-text'>"Buen Provecho! Your dish has been magically conjured by CookGenie."</h5></>}
+              {mexicanRecipeLoadingError && <div className="errorMessage">Oh fiddle sticks! Something didn&rsquo;t go as planned. Shall we try again?</div>}
+              {mexicanRecipe && <><h5 className='recipe-header-text'>Buen Provecho! Your dish has been magically conjured by CookGenie.</h5></>}
               
               <div className="generated-recipe">        
                 {mexicanRecipe && mexicanRecipe.split("\n").map((line, index) => <p key={index}>{line}</p>)}
               </div>
 
-              {mexicanSongs && <><h4 className='songs-header-text'>"These jams are the secret ingredient, so turn up the volume and ENJOY!"</h4></>}
+              {mexicanSongs && <><h4 className='songs-header-text'>These jams are the secret ingredient, so turn up the volume and ENJOY!</h4></>}
 
               <div className="generated-songs">
 

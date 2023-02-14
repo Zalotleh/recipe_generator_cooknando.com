@@ -88,7 +88,7 @@ export default function Indian() {
         <Navigation/>
 
         <div className="welcome">
-          <h1 className='welcome-h1'>Namaste! Let's make some delicious Indian magic. What ingredients will you add to the recipe?</h1>
+          <h1 className='welcome-h1'>Namaste! Let&rsquo;s make some delicious Indian magic. What ingredients will you add to the recipe?</h1>
           <p className='welcome-p'></p>
         </div>
 
@@ -127,13 +127,13 @@ export default function Indian() {
                  </>)
                 }
               </div>
-              {indianRecipeLoadingError && <div className="errorMessage">Oh fiddle sticks! Something didn't go as planned. Shall we try again?</div>}
-              {indianRecipe && <><h5 className='recipe-header-text'>"Chalta Hai! Your dish has been magically conjured by CookGenie."</h5></>}
+              {indianRecipeLoadingError && <div className="errorMessage">Oh fiddle sticks! Something didn&rsquo;t go as planned. Shall we try again?</div>}
+              {indianRecipe && <><h5 className='recipe-header-text'>Chalta Hai! Your dish has been magically conjured by CookGenie.</h5></>}
               <div className="generated-recipe">        
                 {indianRecipe && indianRecipe.split("\n").map((line, index) => <p key={index}>{line}</p>)}
               </div>
 
-              {indianSongs && <><h4 className='songs-header-text'>"These jams are the secret ingredient, so turn up the volume and ENJOY!"</h4></>}
+              {indianSongs && <><h4 className='songs-header-text'>These jams are the secret ingredient, so turn up the volume and ENJOY!</h4></>}
 
               <div className="generated-songs">
                 {indianSongs && indianSongs.split("\n").map((line) => {

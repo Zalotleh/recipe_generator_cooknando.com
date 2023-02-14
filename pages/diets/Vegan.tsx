@@ -88,7 +88,7 @@ export default function Vegan() {
         <Navigation/>
 
         <div className="welcome">
-          <h1 className='welcome-h1'>Viva la vegan! It's time to get creative in the kitchen. What tasty ingredients will you add to the mix?</h1>
+          <h1 className='welcome-h1'>Viva la vegan! It&rsquo;s time to get creative in the kitchen. What tasty ingredients will you add to the mix?</h1>
           <p className='welcome-p'></p>
         </div>
 
@@ -127,13 +127,13 @@ export default function Vegan() {
                  </>)
                 }
               </div>
-              {veganRecipeLoadingError && <div className="errorMessage">Oh fiddle sticks! Something didn't go as planned. Shall we try again?</div>}
-              {veganRecipe && <><h5 className='recipe-header-text'>"Bon Appétit! Your dish has been magically conjured by CookGenie."</h5></>}
+              {veganRecipeLoadingError && <div className="errorMessage">Oh fiddle sticks! Something didn&rsquo;t go as planned. Shall we try again?</div>}
+              {veganRecipe && <><h5 className='recipe-header-text'>Bon Appétit! Your dish has been magically conjured by CookGenie.</h5></>}
               <div className="generated-recipe">        
                 {veganRecipe && veganRecipe.split("\n").map((line, index) => <p key={index}>{line}</p>)}
               </div>
 
-              {veganSongs && <><h4 className='songs-header-text'>"These jams are the secret ingredient, so turn up the volume and ENJOY!"</h4></>}
+              {veganSongs && <><h4 className='songs-header-text'>These jams are the secret ingredient, so turn up the volume and ENJOY!</h4></>}
 
               <div className="generated-songs">
                 {veganSongs && veganSongs.split("\n").map((line) => {

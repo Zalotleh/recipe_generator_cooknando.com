@@ -88,7 +88,7 @@ export default function Mediterranean() {
         <Navigation/>
 
         <div className="welcome">
-          <h1 className='welcome-h1'>Ole! Let's embrace the flavors of the Mediterranean. What ingredients will you use to bring the flavors to life?</h1>
+          <h1 className='welcome-h1'>Ole! Let&rsquo;s embrace the flavors of the Mediterranean. What ingredients will you use to bring the flavors to life?</h1>
           <p className='welcome-p'></p>
         </div>
 
@@ -127,13 +127,13 @@ export default function Mediterranean() {
                  </>)
                 }
               </div>
-              {mediterraneanRecipeLoadingError && <div className="errorMessage">Oh fiddle sticks! Something didn't go as planned. Shall we try again?</div>}
-              {mediterraneanRecipe && <><h5 className='recipe-header-text'>"Bon Appétit! Your dish has been magically conjured by CookGenie."</h5></>}
+              {mediterraneanRecipeLoadingError && <div className="errorMessage">Oh fiddle sticks! Something didn&rsquo;t go as planned. Shall we try again?</div>}
+              {mediterraneanRecipe && <><h5 className='recipe-header-text'>Bon Appétit! Your dish has been magically conjured by CookGenie.</h5></>}
               <div className="generated-recipe">        
                 {mediterraneanRecipe && mediterraneanRecipe.split("\n").map((line, index) => <p key={index}>{line}</p>)}
               </div>
 
-              {mediterraneanSongs && <><h4 className='songs-header-text'>"These jams are the secret ingredient, so turn up the volume and ENJOY!"</h4></>}
+              {mediterraneanSongs && <><h4 className='songs-header-text'>These jams are the secret ingredient, so turn up the volume and ENJOY!</h4></>}
 
               <div className="generated-songs">
                 {mediterraneanSongs && mediterraneanSongs.split("\n").map((line) => {

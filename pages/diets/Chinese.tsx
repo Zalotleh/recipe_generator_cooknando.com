@@ -88,7 +88,7 @@ export default function Chinese() {
         <Navigation/>
 
         <div className="welcome">
-          <h1 className='welcome-h1'>Ni hao! Let's cook up some delicious dishes. What ingredients will you use to create your masterpiece?</h1>
+          <h1 className='welcome-h1'>Ni hao! Let&rsquo;s cook up some delicious dishes. What ingredients will you use to create your masterpiece?</h1>
           <p className='welcome-p'></p>
         </div>
 
@@ -127,13 +127,13 @@ export default function Chinese() {
                  </>)
                 }
               </div>
-              {chineseRecipeLoadingError && <div className="errorMessage">Oh fiddle sticks! Something didn't go as planned. Shall we try again?</div>}
-              {chineseRecipe && <><h5 className='recipe-header-text'>"Bon Appétit! Your dish has been magically conjured by CookGenie."</h5></>}
+              {chineseRecipeLoadingError && <div className="errorMessage">Oh fiddle sticks! Something didn&rsquo;t go as planned. Shall we try again?</div>}
+              {chineseRecipe && <><h5 className='recipe-header-text'>Bon Appétit! Your dish has been magically conjured by CookGenie.</h5></>}
               <div className="generated-recipe">        
                 {chineseRecipe && chineseRecipe.split("\n").map((line, index) => <p key={index}>{line}</p>)}
               </div>
 
-              {chineseSongs && <><h4 className='songs-header-text'>"These jams are the secret ingredient, so turn up the volume and ENJOY!"</h4></>}
+              {chineseSongs && <><h4 className='songs-header-text'>These jams are the secret ingredient, so turn up the volume and ENJOY!</h4></>}
 
               <div className="generated-songs">
                 {chineseSongs && chineseSongs.split("\n").map((line) => {

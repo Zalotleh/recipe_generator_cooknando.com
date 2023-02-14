@@ -92,15 +92,15 @@ export default function Home() {
       <main className={styles.main}>
         <Navigation/>
         <div className="welcome">
-          <h1 className='welcome-h1'>Hey there! I'm your kickside Chef CookNando, here to help you rustle up a tantalizing dish.</h1>
-          <p className='welcome-p'>Let's get started! Simply input the ingredients 
+          <h1 className="welcome-h1">Hey there! I&rsquo;m your kickside Chef CookNando, here to help you rustle up a tantalizing dish.</h1>
+          <p className="welcome-p">Let&rsquo;s get started! Simply input the ingredients 
           you have on hand and add your extra touch, or choose from our recipes generators list. 
           Your personalized recipe is just a few clicks away! 
-          Let's start cooking!</p>
+          Let&rsquo;s start cooking!</p>
         </div>
 
         <Tab.Container id="left-tabs-example" >
-          <Row className='tabs-form-row'>
+          <Row className="tabs-form-row">
             <Col sm={9}>
               <Form onSubmit={handleSubmit} className="inputForm">
                   <Form.Group className='mb-3' controlId='prompt-input'>
@@ -133,14 +133,14 @@ export default function Home() {
                  </>)
                 }
               </div>
-              {recipeLoadingError && <div className="errorMessage">Oh fiddle sticks! Something didn't go as planned. Shall we try again?</div>}
+              {recipeLoadingError && <div className="errorMessage">Oh fiddle sticks! Something didn&rsquo;t go as planned. Shall we try again?</div>}
               
-              {recipe && <><h5 className='recipe-header-text'>"Bon Appétit! Your dish has been magically conjured by CookGenie."</h5></>}
+              {recipe && <><h5 className='recipe-header-text'>Bon Appetit! Your dish has been magically conjured by CookGenie.</h5></>}
               <div className="generated-recipe">     
                 {recipe && recipe.split("\n").map((line, index) => <p key={index}>{line}</p>)}
               </div>
 
-              {songs && <><h4 className='songs-header-text'>"These jams are the secret ingredient, so turn up the volume and ENJOY!"</h4></>}
+              {songs && <><h4 className='songs-header-text'>These jams are the secret ingredient, so turn up the volume and ENJOY!</h4></>}
 
               <div className="generated-songs">
                 {songs && songs.split("\n").map((line) => {
