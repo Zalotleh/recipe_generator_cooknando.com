@@ -1,0 +1,40 @@
+.nav_bar{
+    margin-top: 0px;
+    margin-bottom: 50px;
+    max-width: 100%;
+}
+.nav_item{
+color:  #da9036;
+
+}
+
+.nav_item:hover{
+    color: white;
+}
+
+.nav_brand{
+    color: aliceblue;
+    font-weight: bolder;
+}
+
+.dropdown{
+    background-color: aliceblue;
+    color: white;
+}
+
+.navbar-toggler-icon{
+    background-color: white;
+    color: white;
+
+}
+
+#basic-nav-dropdown{
+    color:aliceblue;
+    background-color: white;
+
+}
+.me-auto{
+    color: white;
+    background-color: white;
+}
+
