@@ -51,7 +51,7 @@ export default function Home() {
         setRecipeLoading(true);
 
         // we send the prompt to the API end point, and get a response back
-        const response = await fetch(`/api/generator?prompt=${encodeURIComponent(prompt)}&extraVeganNote=${encodeURIComponent(extraNote)}`);
+        const response = await fetch(`/api/generator?prompt=${encodeURIComponent(prompt)}&extraNote=${encodeURIComponent(extraNote)}`);
         // checking if the recipe has been generated
         if (!response.ok) {
           throw new Error(await response.text());
