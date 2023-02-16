@@ -32,7 +32,7 @@ export default function About() {
 
         <div className="welcome">
           <div>
-          <img src="/about-banner.png" alt="My Image"  style={{width:"100%", maxHeight:"500px", marginTop:"30px", marginBottom:"50px"}}/>
+          <img src="/about-banner.png" alt="My Image"  style={{width:"100%", maxHeight:"500px", marginTop:"30px", marginBottom:"50px", borderRadius:"5px"}}/>
           </div>
           <h1 className="welcome-h1">Hello! I&rsquo;m your Chef CookNando.</h1>
 
