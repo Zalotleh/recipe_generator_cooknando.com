@@ -1,6 +1,6 @@
 .nav_bar{
     margin-top: 0px;
-    margin-bottom: 50px;
+    margin-bottom: 10px;
     max-width: 100%;
 }
 .nav_item{
@@ -38,3 +38,12 @@ color:  #da9036;
     background-color: white;
 }
 
+.horizontal_line {
+    border: none;
+    border-top: 2px solid #ccc;
+    width: 100%;
+  }
+
+.nav_bar_div{
+    margin-bottom: 60px;
+}

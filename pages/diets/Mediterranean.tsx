@@ -148,10 +148,10 @@ export default function Mediterranean() {
             
           </Row>
         </Tab.Container>
-        <Footer/>
 
       </main>
-          
+      <Footer/>
+
     </>
   )
 }

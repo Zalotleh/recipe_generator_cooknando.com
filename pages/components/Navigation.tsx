@@ -8,10 +8,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 function Navigation() {
 
   return (
-    // variant="light" className={styles.nav_bar}
-    // className={`${styles.nav_item} ${styles.nav_brand}`} href="/">CookGenie
-// className={styles.nav_item}
-
+<div className= {styles.nav_bar_div}>
 <Navbar variant="dark" className={styles.nav_bar} expand="lg">
 <Container>
   <Navbar.Brand className={`${styles.nav_item} ${styles.nav_brand}`} href="/">CookNando</Navbar.Brand>
@@ -28,9 +25,14 @@ function Navigation() {
 
     </Nav>
   </Navbar.Collapse>
-</Container>
-</Navbar>
+  
 
+</Container>
+
+</Navbar>
+<hr className={styles.horizontal_line} />
+
+</div>
   );
 }
 

@@ -150,11 +150,11 @@ export default function Vegan() {
           </Row>
         </Tab.Container>
 
-        <Footer/>
 
                            
       </main>
-          
+      <Footer/>
+
     </>
   )
 }

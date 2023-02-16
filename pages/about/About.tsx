@@ -48,9 +48,10 @@ export default function About() {
 
         <Tabs/>
 
-        <Footer/>
 
         </main>
+        <Footer/>
+
           
     </>
   )

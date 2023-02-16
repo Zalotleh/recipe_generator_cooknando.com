@@ -152,10 +152,10 @@ export default function Mexican() {
           </Row>
         </Tab.Container>
         
-        <Footer/>
 
       </main>
-          
+      <Footer/>
+
     </>
   )
 }

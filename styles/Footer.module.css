@@ -1,0 +1,15 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 98%;
+    max-height: 100%;
+    /* padding: 1rem 3rem;  */
+    text-align: center;
+    margin:100px auto 25px;
+    color: white;
+    }
+
+
+
+

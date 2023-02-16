@@ -147,10 +147,10 @@ export default function Chinese() {
             
           </Row>
         </Tab.Container>
-        <Footer/>
 
       </main>
-          
+      <Footer/>
+
     </>
   )
 }

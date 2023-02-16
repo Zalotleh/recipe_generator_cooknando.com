@@ -155,10 +155,10 @@ export default function Home() {
           
         </Tab.Container>
 
-        <Footer/>
 
         </main>
-          
+        <Footer/>
+
     </>
   )
 }

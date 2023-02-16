@@ -1,16 +1,19 @@
 import React from 'react';
-import Card from 'react-bootstrap/Card';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCopyright } from '@fortawesome/free-solid-svg-icons';
+import styles from '../../styles/Footer.module.css'
 
 function Footer() {
   return (
-    <Card body bg='transparent' style={{width:"100%"}}>
-      <p>All Rights Reserved &nbsp;
+    <main  className={styles.main}>
+
+      <hr style={{width:"100%" , borderTop:" 2px solid #ccc"}}/>
+
+      <p >All Rights Reserved &nbsp;
         <FontAwesomeIcon style={{maxWidth:"18px"}} icon={faCopyright} /> &nbsp;
          Created by: Ziad Alotleh @ www.ziadalotleh.com
       </p>
-    </Card>
+    </main>
   );
 }
 

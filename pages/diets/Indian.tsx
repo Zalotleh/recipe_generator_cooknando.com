@@ -148,9 +148,11 @@ export default function Indian() {
             
           </Row>
         </Tab.Container>
-        <Footer/>
 
       </main>
+
+      <Footer/>
+
           
     </>
   )
