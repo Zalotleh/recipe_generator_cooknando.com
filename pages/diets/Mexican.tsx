@@ -17,7 +17,6 @@ import Footer from '../components/Footer';
 export default function Mexican() {
 
   const [mexicanRecipe, setMexicanRecipe] = useState("");
-  const [mexicanSongs, setMexicanSongs] = useState("");
   const [mexicanNutritionInfo, setMexicanNutritionInfo] = useState("");
 
 
@@ -40,7 +39,6 @@ export default function Mexican() {
         // we set the recipe to an empty string
         // we delete the errors and display the loading message
         setMexicanRecipe("");
-        setMexicanSongs("");
         setMexicanNutritionInfo("");
 
         setMexicanRecipeLoadingError(false);
@@ -60,7 +58,6 @@ export default function Mexican() {
         console.log(body)
 
         setMexicanRecipe(body.mexicanRecipe);
-        setMexicanSongs(body.mexicanSongs);
         setMexicanNutritionInfo(body.mexicanNutritionInfo)
 
 
@@ -136,23 +133,7 @@ export default function Mexican() {
                 {mexicanRecipe && mexicanRecipe.split("\n").map((line, index) => <p key={index}>{line}</p>)}
               </div>
 
-              {mexicanSongs && <><h4 className='songs-header-text'>These jams are the secret ingredient, so turn up the volume and ENJOY!</h4></>}
-
-              <div className="generated-songs">
-
-                {mexicanSongs && mexicanSongs.split("\n").map((line) => {
-                  const parts = line.split(" - https");
-                  const link = "https" + parts[parts.length - 1];
-                  return (
-                    <p key={line} style={{ color: "#f8f9fa", textDecoration: "none" }}>
-                      {parts.slice(0, -1).join(" - https")} - 
-                      <a href={link} target="_blank" rel="noopener" style={{ color: "#da9036", textDecoration: "none" }}>  Open with YouTube</a>
-                    </p>
-                  );
-                })}
-
-              </div>
-            
+                          
             </Col>
 
             <Col sm={3}>

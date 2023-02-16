@@ -19,6 +19,8 @@ export default async function handler(
   const extraMexicanNote = req.query.extraMexicanNote;
 
   if (!mexicanPrompt){
+    console.log("the promot is missing")
+
     return res.status(400).json({error:"Prompt missing"});
   }
 
@@ -32,13 +34,11 @@ export default async function handler(
   })
 
   const ingredientCheck =  completion.data.choices[0].text?.trim()
-
+  console.log("this is the ingredientCheck point and the result is: " + ingredientCheck)
 //   i used trim() becuase the response from api was "n/n/Yes or n/n/No"
-  console.log("this is the veganCheck result " + ingredientCheck)
  
 
 let mexicanRecipe;
-let mexicanSongs;
 let mexicanNutritionInfo;
 
   if (ingredientCheck === 'No') {
@@ -48,7 +48,6 @@ let mexicanNutritionInfo;
 
   } else if (ingredientCheck === 'Yes') {
 
-    console.log("ingredientCheck has been generated and it is Yes")
 
     const completion1 = await openai.createCompletion({
       model: "text-davinci-003",
@@ -60,7 +59,7 @@ let mexicanNutritionInfo;
     })
   
     mexicanRecipe =  completion1.data.choices[0].text
-    console.log(mexicanRecipe)
+    console.log("recipe has been generated")
 
     const completion2 = await openai.createCompletion({
       model: "text-davinci-003",
@@ -71,20 +70,12 @@ let mexicanNutritionInfo;
       frequency_penalty: 0,
     })
     mexicanNutritionInfo =  completion2.data.choices[0].text
+    console.log(" nutritionInfo has been generated")
 
-    const completion3 = await openai.createCompletion({
-      model: "text-davinci-003",
-      prompt: `provide 5 up beat mexican songs to listen to while cooking ${mexicanRecipe} and provide youtube link for each song`,
-      max_tokens: 1000,
-      temperature: 0,
-      presence_penalty: 0,
-      frequency_penalty: 0,
-    })
-      
-    mexicanSongs =  completion3.data.choices[0].text?.trim()
+  
   }
   
-  res.status(200).json({mexicanSongs:mexicanSongs,
+  res.status(200).json({
     mexicanRecipe:mexicanRecipe, mexicanNutritionInfo:mexicanNutritionInfo})
 
 }

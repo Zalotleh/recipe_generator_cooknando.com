@@ -17,7 +17,6 @@ import Footer from '../components/Footer';
 export default function Mediterranean() {
 
   const [mediterraneanRecipe, setMediterraneanRecipe] = useState("");
-  const [mediterraneanSongs, setMediterraneanSongs] = useState("");
   const [mediterraneanNutritionInfo, setMediterraneanNutritionInfo] = useState("");
 
 
@@ -40,7 +39,6 @@ export default function Mediterranean() {
         // we set the recipe to an empty string
         // we delete the errors and display the loading message
         setMediterraneanRecipe("");
-        setMediterraneanSongs("");
         setMediterraneanNutritionInfo("");
 
         setMediterraneanRecipeLoadingError(false);
@@ -60,7 +58,6 @@ export default function Mediterranean() {
         console.log(body)
 
         setMediterraneanRecipe(body.mediterraneanRecipe);
-        setMediterraneanSongs(body.mediterraneanSongs);
         setMediterraneanNutritionInfo(body.mediterraneanNutritionInfo)
 
 
@@ -133,21 +130,7 @@ export default function Mediterranean() {
                 {mediterraneanRecipe && mediterraneanRecipe.split("\n").map((line, index) => <p key={index}>{line}</p>)}
               </div>
 
-              {mediterraneanSongs && <><h4 className='songs-header-text'>These jams are the secret ingredient, so turn up the volume and ENJOY!</h4></>}
-
-              <div className="generated-songs">
-                {mediterraneanSongs && mediterraneanSongs.split("\n").map((line) => {
-                  const parts = line.split(" - https");
-                  const link = "https" + parts[parts.length - 1];
-                  return (
-                    <p key={line} style={{ color: "#f8f9fa", textDecoration: "none" }}>
-                      {parts.slice(0, -1).join(" - https")} - 
-                      <a href={link} target="_blank" rel="noopener" style={{ color: "#da9036", textDecoration: "none" }}>  Open with YouTube</a>
-                    </p>
-                  );
-                })}
-              </div>
-            
+              
             </Col>
 
             <Col sm={3}>

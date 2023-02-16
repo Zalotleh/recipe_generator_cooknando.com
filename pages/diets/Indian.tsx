@@ -17,7 +17,6 @@ import Footer from '../components/Footer';
 export default function Indian() {
 
   const [indianRecipe, setIndianRecipe] = useState("");
-  const [indianSongs, setIndianSongs] = useState("");
   const [indianNutritionInfo, setIndianNutritionInfo] = useState("");
 
 
@@ -40,7 +39,6 @@ export default function Indian() {
         // we set the recipe to an empty string
         // we delete the errors and display the loading message
         setIndianRecipe("");
-        setIndianSongs("");
         setIndianNutritionInfo("");
 
         setIndianRecipeLoadingError(false);
@@ -60,7 +58,6 @@ export default function Indian() {
         console.log(body)
 
         setIndianRecipe(body.indianRecipe);
-        setIndianSongs(body.indianSongs);
         setIndianNutritionInfo(body.indianNutritionInfo)
 
 
@@ -133,21 +130,7 @@ export default function Indian() {
                 {indianRecipe && indianRecipe.split("\n").map((line, index) => <p key={index}>{line}</p>)}
               </div>
 
-              {indianSongs && <><h4 className='songs-header-text'>These jams are the secret ingredient, so turn up the volume and ENJOY!</h4></>}
-
-              <div className="generated-songs">
-                {indianSongs && indianSongs.split("\n").map((line) => {
-                  const parts = line.split(" - https");
-                  const link = "https" + parts[parts.length - 1];
-                  return (
-                    <p key={line} style={{ color: "#f8f9fa", textDecoration: "none" }}>
-                      {parts.slice(0, -1).join(" - https")} - 
-                      <a href={link} target="_blank" rel="noopener" style={{ color: "#da9036", textDecoration: "none" }}>  Open with YouTube</a>
-                    </p>
-                  );
-                })}
-              </div>
-            
+                          
             </Col>
 
             <Col sm={3}>

@@ -1,4 +1,3 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { Configuration, OpenAIApi } from 'openai'
 
@@ -17,6 +16,7 @@ export default async function handler(
   const extraNote = req.query.extraNote;
 
   if (!prompt){
+    console.log("the promot is missing")
     return res.status(400).json({error:"Prompt missing"});
   }
 
@@ -30,17 +30,17 @@ export default async function handler(
   })
 
   const ingredientCheck =  completion.data.choices[0].text?.trim()
+  console.log("this is the ingredientCheck point and the result is: " + ingredientCheck)
+
 
   let recipe;
-  let songs;
   let nutritionInfo;
 
   if (ingredientCheck === 'No'){
-    console.log("the ingredients are not food")
+    console.log("ingredientCheck has been generated and it is No")
     return res.status(400).json({error: "One of the ingredients provided is not food"});
 
   } else if(ingredientCheck === 'Yes'){
-    console.log("the ingredients are food")
 
   const completion1 = await openai.createCompletion({
     model: "text-davinci-003",
@@ -64,19 +64,11 @@ export default async function handler(
   })
   nutritionInfo =  completion2.data.choices[0].text
 
-  const completion3 = await openai.createCompletion({
-    model: "text-davinci-003",
-    prompt: `provide 5 up beat songs to listen to while cooking ${recipe} and provide youtube link for each song`,
-    max_tokens: 1000,
-    temperature: 1,
-    presence_penalty: 0,
-    frequency_penalty: 0,
-  })
+  console.log(" nutritionInfo has been generated")
 
-  songs =  completion3.data.choices[0].text?.trim()
 
 }
 
-  res.status(200).json({songs:songs,
+  res.status(200).json({
     recipe:recipe , nutritionInfo:nutritionInfo})
 }

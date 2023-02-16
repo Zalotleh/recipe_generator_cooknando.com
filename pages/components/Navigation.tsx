@@ -18,6 +18,7 @@ function Navigation() {
   <Navbar.Toggle aria-controls="basic-navbar-nav" />
   <Navbar.Collapse   id="basic-navbar-nav">
     <Nav className="me-auto"  >
+      <Nav.Link className={styles.nav_item} href="/about/About">About</Nav.Link>
       <Nav.Link className={styles.nav_item} href="/">Universal</Nav.Link>
       <Nav.Link className={styles.nav_item} href="/diets/Vegan">Vegan</Nav.Link>
       <Nav.Link className={styles.nav_item} href="/diets/Mediterranean">Mediterranean</Nav.Link>

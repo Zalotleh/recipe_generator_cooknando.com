@@ -17,7 +17,6 @@ import Footer from '../components/Footer';
 export default function Chinese() {
 
   const [chineseRecipe, setChineseRecipe] = useState("");
-  const [chineseSongs, setChineseSongs] = useState("");
   const [chineseNutritionInfo, setChineseNutritionInfo] = useState("");
 
 
@@ -40,7 +39,6 @@ export default function Chinese() {
         // we set the recipe to an empty string
         // we delete the errors and display the loading message
         setChineseRecipe("");
-        setChineseSongs("");
         setChineseNutritionInfo("");
 
         setChineseRecipeLoadingError(false);
@@ -60,7 +58,6 @@ export default function Chinese() {
         console.log(body)
 
         setChineseRecipe(body.chineseRecipe);
-        setChineseSongs(body.chineseSongs);
         setChineseNutritionInfo(body.chineseNutritionInfo)
 
 
@@ -131,21 +128,6 @@ export default function Chinese() {
               {chineseRecipe && <><h5 className='recipe-header-text'>Bon Appétit! Your dish has been magically conjured by CookGenie.</h5></>}
               <div className="generated-recipe">        
                 {chineseRecipe && chineseRecipe.split("\n").map((line, index) => <p key={index}>{line}</p>)}
-              </div>
-
-              {chineseSongs && <><h4 className='songs-header-text'>These jams are the secret ingredient, so turn up the volume and ENJOY!</h4></>}
-
-              <div className="generated-songs">
-                {chineseSongs && chineseSongs.split("\n").map((line) => {
-                  const parts = line.split(" - https");
-                  const link = "https" + parts[parts.length - 1];
-                  return (
-                    <p key={line} style={{ color: "#f8f9fa", textDecoration: "none" }}>
-                      {parts.slice(0, -1).join(" - https")} - 
-                      <a href={link} target="_blank" rel="noopener" style={{ color: "#da9036", textDecoration: "none" }}>  Open with YouTube</a>
-                    </p>
-                  );
-                })}
               </div>
             
             </Col>

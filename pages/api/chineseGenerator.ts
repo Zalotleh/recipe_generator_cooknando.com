@@ -19,6 +19,7 @@ export default async function handler(
   const extraChineseNote = req.query.extraChineseNote;
 
   if (!chinesePrompt){
+    console.log("the promot is missing")
     return res.status(400).json({error:"Prompt missing"});
   }
 
@@ -34,11 +35,10 @@ export default async function handler(
   const ingredientCheck =  completion.data.choices[0].text?.trim()
 
 //   i used trim() becuase the response from api was "n/n/Yes or n/n/No"
-  console.log("this is the veganCheck result " + ingredientCheck)
+  console.log("this is the ingredientCheck point and the result is: " + ingredientCheck)
  
 
 let chineseRecipe;
-let chineseSongs;
 let chineseNutritionInfo;
 
   if (ingredientCheck === 'No') {
@@ -48,7 +48,6 @@ let chineseNutritionInfo;
 
   } else if (ingredientCheck === 'Yes') {
 
-    console.log("ingredientCheck has been generated and it is Yes")
 
     const completion1 = await openai.createCompletion({
       model: "text-davinci-003",
@@ -60,7 +59,7 @@ let chineseNutritionInfo;
     })
   
     chineseRecipe =  completion1.data.choices[0].text
-    console.log(chineseRecipe)
+    console.log("recipe has been generated")
 
     const completion2 = await openai.createCompletion({
       model: "text-davinci-003",
@@ -71,20 +70,11 @@ let chineseNutritionInfo;
       frequency_penalty: 0,
     })
     chineseNutritionInfo =  completion2.data.choices[0].text
+    console.log(" nutritionInfo has been generated")
 
-    const completion3 = await openai.createCompletion({
-      model: "text-davinci-003",
-      prompt: `provide 5 up beat songs to listen to while cooking ${chineseRecipe} and provide youtube link for each song`,
-      max_tokens: 1000,
-      temperature: 0,
-      presence_penalty: 0,
-      frequency_penalty: 0,
-    })
-      
-    chineseSongs =  completion3.data.choices[0].text?.trim()
-  }
+      }
   
-  res.status(200).json({chineseSongs:chineseSongs,
+  res.status(200).json({
     chineseRecipe:chineseRecipe, chineseNutritionInfo:chineseNutritionInfo})
 
 }

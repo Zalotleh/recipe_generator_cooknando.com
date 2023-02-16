@@ -19,6 +19,7 @@ export default async function handler(
   const extraIndianNote = req.query.extraIndianNote;
 
   if (!indianPrompt){
+    console.log("the promot is missing")
     return res.status(400).json({error:"Prompt missing"});
   }
 
@@ -34,11 +35,10 @@ export default async function handler(
   const ingredientCheck =  completion.data.choices[0].text?.trim()
 
 //   i used trim() becuase the response from api was "n/n/Yes or n/n/No"
-  console.log("this is the veganCheck result " + ingredientCheck)
+console.log("this is the ingredientCheck point and the result is: " + ingredientCheck)
  
 
 let indianRecipe;
-let indianSongs;
 let indianNutritionInfo;
 
   if (ingredientCheck === 'No') {
@@ -60,7 +60,8 @@ let indianNutritionInfo;
     })
   
     indianRecipe =  completion1.data.choices[0].text
-    console.log(indianRecipe)
+    console.log("recipe has been generated")
+
 
     const completion2 = await openai.createCompletion({
       model: "text-davinci-003",
@@ -71,20 +72,11 @@ let indianNutritionInfo;
       frequency_penalty: 0,
     })
     indianNutritionInfo =  completion2.data.choices[0].text
+    console.log(" nutritionInfo has been generated")
 
-    const completion3 = await openai.createCompletion({
-      model: "text-davinci-003",
-      prompt: `provide 5 up beat famous indian songs to listen to while cooking ${indianRecipe} and provide youtube link for each song`,
-      max_tokens: 1000,
-      temperature: 0,
-      presence_penalty: 0,
-      frequency_penalty: 0,
-    })
-      
-    indianSongs =  completion3.data.choices[0].text?.trim()
-  }
+   }
   
-  res.status(200).json({indianSongs:indianSongs,
+  res.status(200).json({
     indianRecipe:indianRecipe, indianNutritionInfo:indianNutritionInfo})
 
 }

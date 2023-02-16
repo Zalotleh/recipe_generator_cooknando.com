@@ -17,7 +17,6 @@ import Footer from '../components/Footer';
 export default function Vegan() {
 
   const [veganRecipe, setVeganRecipe] = useState("");
-  const [veganSongs, setVeganSongs] = useState("");
   const [veganNutritionInfo, setVeganNutritionInfo] = useState("");
 
 
@@ -40,7 +39,6 @@ export default function Vegan() {
         // we set the recipe to an empty string
         // we delete the errors and display the loading message
         setVeganRecipe("");
-        setVeganSongs("");
         setVeganNutritionInfo("");
 
         setVeganRecipeLoadingError(false);
@@ -60,7 +58,6 @@ export default function Vegan() {
         console.log(body)
 
         setVeganRecipe(body.veganRecipe);
-        setVeganSongs(body.veganSongs);
         setVeganNutritionInfo(body.veganNutritionInfo)
 
 
@@ -127,27 +124,14 @@ export default function Vegan() {
                  </>)
                 }
               </div>
-              {veganRecipeLoadingError && <div className="errorMessage">Oh fiddle sticks! Something didn&rsquo;t go as planned. Shall we try again?</div>}
+              {veganRecipeLoadingError && <div className="errorMessage">Oh fiddle sticks! Something didn&rsquo;t go as planned. Shall we try again?
+              <br></br>Please make sure that all the ingredients are vegan, food or drinks!</div>}
               {veganRecipe && <><h5 className='recipe-header-text'>Bon Appétit! Your dish has been magically conjured by CookGenie.</h5></>}
               <div className="generated-recipe">        
                 {veganRecipe && veganRecipe.split("\n").map((line, index) => <p key={index}>{line}</p>)}
               </div>
 
-              {veganSongs && <><h4 className='songs-header-text'>These jams are the secret ingredient, so turn up the volume and ENJOY!</h4></>}
-
-              <div className="generated-songs">
-                {veganSongs && veganSongs.split("\n").map((line) => {
-                  const parts = line.split(" - https");
-                  const link = "https" + parts[parts.length - 1];
-                  return (
-                    <p key={line} style={{ color: "#f8f9fa", textDecoration: "none" }}>
-                      {parts.slice(0, -1).join(" - https")} - 
-                      <a href={link} target="_blank" rel="noopener" style={{ color: "#da9036", textDecoration: "none" }}>  Open with YouTube</a>
-                    </p>
-                  );
-                })}
-              </div>
-            
+              
             </Col>
 
             <Col sm={3}>

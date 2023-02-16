@@ -20,7 +20,6 @@ import Tab from 'react-bootstrap/Tab';
 export default function Home() {
 
   const [recipe, setRecipe] = useState("");
-  const [songs, setSongs] = useState("");
   const [nutritionInfo, setNutritionInfo] = useState("");
 
 
@@ -44,7 +43,6 @@ export default function Home() {
         // we set the recipe to an empty string
         // we delete the errors and display the loading message
         setRecipe("");
-        setSongs("");
         setNutritionInfo("");
 
         setRecipeLoadingError(false);
@@ -62,22 +60,18 @@ export default function Home() {
 
         console.log(body)
 
-
-        
-        
         setRecipe(body.recipe);
-        setSongs(body.songs);
-        setNutritionInfo(body.nutritionInfo);
+        setNutritionInfo(body.nutritionInfo)
 
 
-
-      }catch(error){
+      }catch (error) {
         console.error(error);
         setRecipeLoadingError(true);
-      }
+        }
       finally{
         setRecipeLoading(false)
       }
+ 
     }
   }
 
@@ -92,7 +86,7 @@ export default function Home() {
       <main className={styles.main}>
         <Navigation/>
         <div className="welcome">
-          <h1 className="welcome-h1">Hey there! I&rsquo;m your kickside Chef CookNando, here to help you rustle up a tantalizing dish.</h1>
+          <h1 className="welcome-h1">Hello! I&rsquo;m your Chef CookNando, here to help you rustle up a tantalizing dish.</h1>
           <p className="welcome-p">Let&rsquo;s get started! Simply input the ingredients 
           you have on hand and add your extra touch, or choose from our recipes generators list. 
           Your personalized recipe is just a few clicks away! 
@@ -134,27 +128,13 @@ export default function Home() {
                 }
               </div>
               {recipeLoadingError && <div className="errorMessage">Oh fiddle sticks! Something didn&rsquo;t go as planned. Shall we try again?</div>}
-              
+
               {recipe && <><h5 className='recipe-header-text'>Bon Appetit! Your dish has been magically conjured by CookGenie.</h5></>}
               <div className="generated-recipe">     
                 {recipe && recipe.split("\n").map((line, index) => <p key={index}>{line}</p>)}
               </div>
 
-              {songs && <><h4 className='songs-header-text'>These jams are the secret ingredient, so turn up the volume and ENJOY!</h4></>}
-
-              <div className="generated-songs">
-                {songs && songs.split("\n").map((line) => {
-                  const parts = line.split(" - https");
-                  const link = "https" + parts[parts.length - 1];
-                  return (
-                    <p key={line} style={{ color: "#f8f9fa", textDecoration: "none" }}>
-                      {parts.slice(0, -1).join(" - https")} - 
-                      <a href={link} target="_blank" rel="noopener" style={{ color: "#da9036", textDecoration: "none" }}>  Open with YouTube</a>
-                    </p>
-                  );
-                })}
-              </div>
-
+              
             </Col>
             
 

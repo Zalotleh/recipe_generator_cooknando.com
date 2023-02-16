@@ -19,6 +19,8 @@ export default async function handler(
   const extraMediterraneanNote = req.query.extraMediterraneanNote;
 
   if (!mediterraneanPrompt){
+    console.log("the promot is missing")
+
     return res.status(400).json({error:"Prompt missing"});
   }
 
@@ -34,11 +36,10 @@ export default async function handler(
   const ingredientCheck =  completion.data.choices[0].text?.trim()
 
 //   i used trim() becuase the response from api was "n/n/Yes or n/n/No"
-  console.log("this is the veganCheck result " + ingredientCheck)
+console.log("this is the ingredientCheck point and the result is: " + ingredientCheck)
  
 
 let mediterraneanRecipe;
-let mediterraneanSongs;
 let mediterraneanNutritionInfo;
 
   if (ingredientCheck === 'No') {
@@ -47,8 +48,6 @@ let mediterraneanNutritionInfo;
     return res.status(400).json({error: "One of the ingredients provided is not food"});
 
   } else if (ingredientCheck === 'Yes') {
-
-    console.log("ingredientCheck has been generated and it is Yes")
 
     const completion1 = await openai.createCompletion({
       model: "text-davinci-003",
@@ -60,7 +59,7 @@ let mediterraneanNutritionInfo;
     })
   
     mediterraneanRecipe =  completion1.data.choices[0].text
-    console.log(mediterraneanRecipe)
+    console.log("recipe has been generated")
 
     const completion2 = await openai.createCompletion({
       model: "text-davinci-003",
@@ -71,20 +70,12 @@ let mediterraneanNutritionInfo;
       frequency_penalty: 0,
     })
     mediterraneanNutritionInfo =  completion2.data.choices[0].text
+    console.log(" nutritionInfo has been generated")
 
-    const completion3 = await openai.createCompletion({
-      model: "text-davinci-003",
-      prompt: `provide 5 up beat mediterranean songs to listen to while cooking ${mediterraneanRecipe} and provide youtube link for each song`,
-      max_tokens: 1000,
-      temperature: 0,
-      presence_penalty: 0,
-      frequency_penalty: 0,
-    })
-      
-    mediterraneanSongs =  completion3.data.choices[0].text?.trim()
+
   }
   
-  res.status(200).json({mediterraneanSongs:mediterraneanSongs,
+  res.status(200).json({
     mediterraneanRecipe:mediterraneanRecipe, mediterraneanNutritionInfo:mediterraneanNutritionInfo})
 
 }
