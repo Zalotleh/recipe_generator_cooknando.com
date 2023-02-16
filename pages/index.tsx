@@ -104,7 +104,7 @@ export default function Home() {
                       name='prompt'
                       placeholder='add ingredients here, ex: tomato 100g, olive oil 1 cup .. etc'
                     />
-                    <p >Add you ingredients here</p>
+                    <p >Add your ingredients here</p>
 
                     <Form.Control
                       maxLength={300}

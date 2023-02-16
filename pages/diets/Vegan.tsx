@@ -101,7 +101,7 @@ export default function Vegan() {
                     name='veganPrompt'
                     placeholder='add ingredients here, ex: tomato 100g, olive oil 1 cup .. etc'
                   />
-                  <p>Add you ingredients here</p>
+                  <p>Add your ingredients here</p>
 
                   <Form.Control className='extra-note'
                     maxLength={300}
